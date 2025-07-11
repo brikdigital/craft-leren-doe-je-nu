@@ -1,0 +1,17 @@
+{% import '_includes/forms.twig' as forms %}
+
+{{ forms.autosuggestField({
+    label: 'API Url',
+    name: 'apiUrl',
+    suggestEnvVars: true,
+    value: settings.apiUrl,
+    required: true
+}) }}
+
+{{ forms.autosuggestField({
+    label: 'API key',
+    name: 'apiKey',
+    suggestEnvVars: true,
+    value: settings.apiKey,
+    required: true
+}) }}
