@@ -2,9 +2,13 @@
 
 namespace brikdigital\craftlerendoejenu;
 
+use brikdigital\craftlerendoejenu\elements\Teacher;
 use brikdigital\craftlerendoejenu\models\Settings;
 use brikdigital\craftlerendoejenu\services\LerenDoeJeNuApiService;
+use craft\base\Event;
 use craft\base\Model;
+use craft\events\RegisterComponentTypesEvent;
+use craft\services\Elements;
 
 class Plugin extends \craft\base\Plugin
 {
@@ -17,6 +21,14 @@ class Plugin extends \craft\base\Plugin
         $this->setComponents([
             'api' => LerenDoeJeNuApiService::class,
         ]);
+
+        Event::on(
+            Elements::class,
+            Elements::EVENT_REGISTER_ELEMENT_TYPES,
+            function (RegisterComponentTypesEvent $event) {
+                $event->types[] = Teacher::class;
+            }
+        );
     }
 
     protected function createSettingsModel(): ?Model
