@@ -2,6 +2,7 @@
 
 namespace brikdigital\craftlerendoejenu;
 
+use brikdigital\craftlerendoejenu\elements\CourseGroup;
 use brikdigital\craftlerendoejenu\elements\Teacher;
 use brikdigital\craftlerendoejenu\models\Settings;
 use brikdigital\craftlerendoejenu\services\LerenDoeJeNuApiService;
@@ -29,6 +30,7 @@ class Plugin extends \craft\base\Plugin
             Elements::class,
             Elements::EVENT_REGISTER_ELEMENT_TYPES,
             function (RegisterComponentTypesEvent $event) {
+                $event->types[] = CourseGroup::class;
                 $event->types[] = Teacher::class;
             }
         );

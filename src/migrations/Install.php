@@ -2,6 +2,7 @@
 
 namespace brikdigital\craftlerendoejenu\migrations;
 
+use brikdigital\craftlerendoejenu\elements\CourseGroup;
 use brikdigital\craftlerendoejenu\elements\Teacher;
 use Craft;
 use craft\db\Migration;
@@ -37,6 +38,32 @@ class Install extends Migration
     {
         $tablesCreated = false;
 
+        if (!Craft::$app->getDb()->tableExists(CourseGroup::TABLE)) {
+            $this->createTable(CourseGroup::TABLE, [
+                'id' => $this->primaryKey(),
+                'foreignId' => $this->bigInteger()->unsigned()->unique()->notNull(),
+
+                'name' => $this->string(),
+                'subtitle' => $this->string(),
+                'description' => $this->text(),
+                'practicalInfo' => $this->text(),
+                'lowestPrice' => $this->float(),
+                'bookingUrl' => $this->string(),
+                'year' => $this->string(),
+                'startDateTime' => $this->dateTime(),
+                'daysOfWeek' => $this->json(),
+                'teacherIds' => $this->json(),
+                'prices' => $this->json(),
+                'locations' => $this->json(),
+
+                'dateCreated' => $this->dateTime()->notNull(),
+                'dateUpdated' => $this->dateTime()->notNull(),
+                'uid' => $this->uid(),
+            ]);
+
+            $tablesCreated = true;
+        }
+
         if (!Craft::$app->getDb()->tableExists(Teacher::TABLE)) {
             $this->createTable(Teacher::TABLE, [
                 'id' => $this->primaryKey(),
@@ -59,13 +86,15 @@ class Install extends Migration
         return $tablesCreated;
     }
 
-    private function addForeignKeys()
+    private function addForeignKeys(): void
     {
+        $this->addForeignKey(null, CourseGroup::TABLE, ['id'], Table::ELEMENTS, ['id'], 'CASCADE');
         $this->addForeignKey(null, Teacher::TABLE, ['id'], Table::ELEMENTS, ['id'], 'CASCADE');
     }
 
     private function dropTables(): void
     {
+        $this->dropTableIfExists(CourseGroup::TABLE);
         $this->dropTableIfExists(Teacher::TABLE);
     }
 }
