@@ -55,20 +55,16 @@ class TeacherQuery extends ElementQuery
     {
         $this->joinElementTable(Teacher::TABLE);
 
-        $this->query->select([
-            Teacher::TABLE . '.foreignId',
-            Teacher::TABLE . '.firstName',
-            Teacher::TABLE . '.infix',
-            Teacher::TABLE . '.lastName',
-            Teacher::TABLE . '.infoText',
-            Teacher::TABLE . '.imageUrl',
-        ]);
-
-        foreach (get_object_vars($this) as $key => $value) {
-            if ($value) {
-                $this->subQuery->andWhere(Db::parseParam(Teacher::TABLE . ".$key", $value));
+        $columns = [];
+        $properties = ['foreignId', 'firstName', 'infix', 'lastName', 'infoText', 'imageUrl'];
+        foreach ($properties as $property) {
+            $columns[] = $column = Teacher::TABLE . ".$property";
+            if ($this->$property) {
+                $this->subQuery->andWhere(Db::parseParam($column, $this->$property));
             }
         }
+
+        $this->query->select($columns);
 
         return parent::beforePrepare();
     }

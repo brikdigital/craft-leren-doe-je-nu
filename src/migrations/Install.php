@@ -40,7 +40,7 @@ class Install extends Migration
         if (!Craft::$app->getDb()->tableExists(Teacher::TABLE)) {
             $this->createTable(Teacher::TABLE, [
                 'id' => $this->primaryKey(),
-                'foreignId' => $this->bigInteger()->unsigned()->notNull(),
+                'foreignId' => $this->bigInteger()->unsigned()->unique()->notNull(),
 
                 'firstName' => $this->string(),
                 'infix' => $this->string(),

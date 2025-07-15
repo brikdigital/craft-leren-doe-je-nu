@@ -21,16 +21,18 @@ class Teacher extends Element
     public function afterSave(bool $isNew): void
     {
         if (!$this->propagating) {
-            Db::upsert(self::TABLE, [
+            $updateColumns = [
+                'firstName' => $this->firstName ?: null,
+                'infix' => $this->infix ?: null,
+                'lastName' => $this->lastName ?: null,
+                'infoText' => $this->infoText ?: null,
+                'imageUrl' => $this->imageUrl ?: null,
+            ];
+
+            Db::upsert(self::TABLE, array_merge($updateColumns, [
                 'id' => $this->id,
                 'foreignId' => $this->foreignId,
-            ], [
-                'firstName' => $this->firstName,
-                'infix' => $this->infix,
-                'lastName' => $this->lastName,
-                'infoText' => $this->infoText,
-                'imageUrl' => $this->imageUrl,
-            ]);
+            ]), $updateColumns);
         }
 
         parent::afterSave($isNew);

@@ -10,6 +10,9 @@ use craft\base\Model;
 use craft\events\RegisterComponentTypesEvent;
 use craft\services\Elements;
 
+/**
+ * @property-read LerenDoeJeNuApiService $api
+ */
 class Plugin extends \craft\base\Plugin
 {
     public bool $hasCpSettings = true;
