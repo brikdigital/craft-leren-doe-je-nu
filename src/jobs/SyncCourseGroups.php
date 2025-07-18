@@ -44,7 +44,7 @@ class SyncCourseGroups extends BaseJob
                     $element->foreignId = $courseGroup['id'];
                 }
 
-//                $element->title = $courseGroup['name'] ?: null;
+                $element->title = $courseGroup['name'] ?: null;
                 $element->name = $courseGroup['name'] ?: null;
                 $element->subtitle = $courseGroup['subtitle'] ?: null;
                 $element->description = $courseGroup['description'] ?: null;

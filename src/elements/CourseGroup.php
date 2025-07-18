@@ -28,25 +28,25 @@ class CourseGroup extends Element
     public array $prices = [];
     public array $locations = [];
 
-//    public static function displayName(): string
-//    {
-//        return Craft::t(LerenDoeJeNu::getInstance()->getHandle(), 'Course group');
-//    }
-//
-//    public static function pluralDisplayName(): string
-//    {
-//        return Craft::t(LerenDoeJeNu::getInstance()->getHandle(), 'Course groups');
-//    }
-//
-//    public static function hasContent(): bool
-//    {
-//        return true;
-//    }
-//
-//    public static function hasTitles(): bool
-//    {
-//        return true;
-//    }
+    public static function displayName(): string
+    {
+        return Craft::t(LerenDoeJeNu::getInstance()->getHandle(), 'Course group');
+    }
+
+    public static function pluralDisplayName(): string
+    {
+        return Craft::t(LerenDoeJeNu::getInstance()->getHandle(), 'Course groups');
+    }
+
+    public static function hasContent(): bool
+    {
+        return true;
+    }
+
+    public static function hasTitles(): bool
+    {
+        return true;
+    }
 
     public function afterSave(bool $isNew): void
     {
@@ -80,14 +80,14 @@ class CourseGroup extends Element
         return new CourseGroupQuery(static::class);
     }
 
-//    protected static function defineSources(string $context): array
-//    {
-//        return [
-//            [
-//                'key' => '*',
-//                'label' => Craft::t('app', 'All entries'),
-//                'criteria' => []
-//            ],
-//        ];
-//    }
+    protected static function defineSources(string $context): array
+    {
+        return [
+            [
+                'key' => '*',
+                'label' => Craft::t('app', 'All entries'),
+                'criteria' => []
+            ],
+        ];
+    }
 }

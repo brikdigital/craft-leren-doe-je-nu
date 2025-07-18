@@ -20,7 +20,7 @@ use craft\web\UrlManager;
  */
 class LerenDoeJeNu extends Plugin
 {
-//    public bool $hasCpSection = true;
+    public bool $hasCpSection = true;
     public bool $hasCpSettings = true;
 
     public function init(): void
@@ -40,15 +40,15 @@ class LerenDoeJeNu extends Plugin
             }
         );
 
-//        Event::on(
-//            UrlManager::class,
-//            UrlManager::EVENT_REGISTER_CP_URL_RULES,
-//            function (RegisterUrlRulesEvent $event) {
-//                $event->rules[$this->handle] = "$this->handle/navigation/index";
-//
-//                $event->rules["$this->handle/course-groups"] = ['template' => "$this->handle/course-groups/_index.twig"];
-//            }
-//        );
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_CP_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules[$this->handle] = "$this->handle/navigation/index";
+
+                $event->rules["$this->handle/course-groups"] = ['template' => "$this->handle/course-groups/_index.twig"];
+            }
+        );
     }
 
     protected function createSettingsModel(): ?Model
@@ -56,17 +56,17 @@ class LerenDoeJeNu extends Plugin
         return new Settings();
     }
 
-//    public function getCpNavItem(): ?array
-//    {
-//        $nav = parent::getCpNavItem();
-//        $nav['subnav'] = [
-//            'course-groups' => [
-//                'label' => Craft::t($this->handle, 'Course groups'),
-//                'url' => "$this->handle/course-groups"
-//            ]
-//        ];
-//        return $nav;
-//    }
+    public function getCpNavItem(): ?array
+    {
+        $nav = parent::getCpNavItem();
+        $nav['subnav'] = [
+            'course-groups' => [
+                'label' => Craft::t($this->handle, 'Course groups'),
+                'url' => "$this->handle/course-groups"
+            ]
+        ];
+        return $nav;
+    }
 
     protected function settingsHtml(): ?string
     {
