@@ -1,9 +1,9 @@
 <?php
 
-namespace brikdigital\craftlerendoejenu\migrations;
+namespace brikdigital\lerendoejenu\migrations;
 
-use brikdigital\craftlerendoejenu\elements\CourseGroup;
-use brikdigital\craftlerendoejenu\elements\Teacher;
+use brikdigital\lerendoejenu\elements\CourseGroup;
+use brikdigital\lerendoejenu\elements\Teacher;
 use Craft;
 use craft\db\Migration;
 use craft\db\Table;

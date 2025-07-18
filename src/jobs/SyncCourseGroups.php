@@ -1,9 +1,9 @@
 <?php
 
-namespace brikdigital\craftlerendoejenu\jobs;
+namespace brikdigital\lerendoejenu\jobs;
 
-use brikdigital\craftlerendoejenu\elements\CourseGroup;
-use brikdigital\craftlerendoejenu\Plugin;
+use brikdigital\lerendoejenu\elements\CourseGroup;
+use brikdigital\lerendoejenu\LerenDoeJeNu;
 use Craft;
 use craft\i18n\Translation;
 use craft\queue\BaseJob;
@@ -23,7 +23,7 @@ class SyncCourseGroups extends BaseJob
 
         Craft::info(CourseGroup::find()->all(), 'LALAL');
 
-        Plugin::getInstance()->api->getAll('courseGroups', [
+        LerenDoeJeNu::getInstance()->api->getAll('courseGroups', [
             'sort' => 'id,asc'
         ], function ($response) use (&$count, &$processedIds, $queue) {
             foreach ($response['content'] ?? [] as $courseGroup) {
@@ -44,6 +44,7 @@ class SyncCourseGroups extends BaseJob
                     $element->foreignId = $courseGroup['id'];
                 }
 
+//                $element->title = $courseGroup['name'] ?: null;
                 $element->name = $courseGroup['name'] ?: null;
                 $element->subtitle = $courseGroup['subtitle'] ?: null;
                 $element->description = $courseGroup['description'] ?: null;

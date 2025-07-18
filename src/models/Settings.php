@@ -1,6 +1,6 @@
 <?php
 
-namespace brikdigital\craftlerendoejenu\models;
+namespace brikdigital\lerendoejenu\models;
 
 use craft\base\Model;
 use craft\behaviors\EnvAttributeParserBehavior;

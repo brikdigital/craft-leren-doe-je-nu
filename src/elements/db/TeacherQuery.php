@@ -1,8 +1,8 @@
 <?php
 
-namespace brikdigital\craftlerendoejenu\elements\db;
+namespace brikdigital\lerendoejenu\elements\db;
 
-use brikdigital\craftlerendoejenu\elements\Teacher;
+use brikdigital\lerendoejenu\elements\Teacher;
 use craft\elements\db\ElementQuery;
 use craft\helpers\Db;
 

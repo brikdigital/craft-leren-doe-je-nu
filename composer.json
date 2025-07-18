@@ -1,6 +1,6 @@
 {
   "name": "brikdigital/craft-leren-doe-je-nu",
-  "description": "LDJN API-integration",
+  "description": "Leren Doe Je Nu API-integration",
   "type": "craft-plugin",
   "version": "5.0.0",
   "keywords": [
@@ -22,12 +22,13 @@
   },
   "autoload": {
     "psr-4": {
-      "brikdigital\\craftlerendoejenu\\": "src/"
+      "brikdigital\\lerendoejenu\\": "src/"
     }
   },
   "extra": {
     "name": "Leren doe je nu",
-    "handle": "leren-doe-je-nu"
+    "handle": "leren-doe-je-nu",
+    "class": "brikdigital\\lerendoejenu\\LerenDoeJeNu"
   },
   "config": {
     "allow-plugins": {

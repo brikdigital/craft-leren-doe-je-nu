@@ -1,9 +1,9 @@
 <?php
 
-namespace brikdigital\craftlerendoejenu\console\controllers;
+namespace brikdigital\lerendoejenu\console\controllers;
 
-use brikdigital\craftlerendoejenu\jobs\SyncCourseGroups;
-use brikdigital\craftlerendoejenu\jobs\SyncTeachers;
+use brikdigital\lerendoejenu\jobs\SyncCourseGroups;
+use brikdigital\lerendoejenu\jobs\SyncTeachers;
 use craft\console\Controller;
 use craft\helpers\Queue;
 use yii\console\ExitCode;

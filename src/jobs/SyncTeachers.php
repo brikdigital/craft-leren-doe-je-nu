@@ -1,9 +1,9 @@
 <?php
 
-namespace brikdigital\craftlerendoejenu\jobs;
+namespace brikdigital\lerendoejenu\jobs;
 
-use brikdigital\craftlerendoejenu\elements\Teacher;
-use brikdigital\craftlerendoejenu\Plugin;
+use brikdigital\lerendoejenu\elements\Teacher;
+use brikdigital\lerendoejenu\LerenDoeJeNu;
 use Craft;
 use craft\i18n\Translation;
 use craft\queue\BaseJob;
@@ -20,7 +20,7 @@ class SyncTeachers extends BaseJob
         $count = 0;
         $processedIds = [];
 
-        Plugin::getInstance()->api->getAll('teachers', [
+        LerenDoeJeNu::getInstance()->api->getAll('teachers', [
             'sort' => 'teacher_id,asc'
         ], function ($response) use (&$count, &$processedIds, $queue) {
             foreach ($response['content'] ?? [] as $teacher) {

@@ -1,8 +1,8 @@
 <?php
 
-namespace brikdigital\craftlerendoejenu\services;
+namespace brikdigital\lerendoejenu\services;
 
-use brikdigital\craftlerendoejenu\Plugin;
+use brikdigital\lerendoejenu\LerenDoeJeNu;
 use craft\helpers\App;
 use GuzzleHttp\Client;
 use yii\base\Component;
@@ -13,7 +13,7 @@ class LerenDoeJeNuApiService extends Component
 
     public function __construct($config = [])
     {
-        $settings = Plugin::getInstance()->getSettings();
+        $settings = LerenDoeJeNu::getInstance()->getSettings();
         $this->client = new Client([
             'base_uri' => rtrim(App::parseEnv($settings->apiUrl), '/') . '/external/',
             'headers' => [
