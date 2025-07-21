@@ -86,7 +86,6 @@ class CourseGroup extends Element
             [
                 'key' => '*',
                 'label' => Craft::t('app', 'All entries'),
-                'criteria' => []
             ],
         ];
     }
