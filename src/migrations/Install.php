@@ -43,7 +43,6 @@ class Install extends Migration
                 'id' => $this->primaryKey(),
                 'foreignId' => $this->bigInteger()->unsigned()->unique()->notNull(),
 
-                'name' => $this->string(),
                 'subtitle' => $this->string(),
                 'description' => $this->text(),
                 'practicalInfo' => $this->text(),

@@ -15,7 +15,6 @@ class CourseGroup extends Element
     public const TABLE = '{{%ldjn_course_groups}}';
 
     public ?int $foreignId = null;
-    public ?string $name = null;
     public ?string $subtitle = null;
     public ?string $description = null;
     public ?string $practicalInfo = null;
@@ -38,6 +37,7 @@ class CourseGroup extends Element
         return Craft::t(LerenDoeJeNu::getInstance()->getHandle(), 'Course groups');
     }
 
+    // TODO: Remove after Craft 5 update
     public static function hasContent(): bool
     {
         return true;
@@ -52,7 +52,6 @@ class CourseGroup extends Element
     {
         if (!$this->propagating) {
             $updateColumns = [
-                'name' => $this->name ?: null,
                 'subtitle' => $this->subtitle ?: null,
                 'description' => $this->description ?: null,
                 'practicalInfo' => $this->practicalInfo ?: null,

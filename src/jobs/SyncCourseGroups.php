@@ -45,7 +45,6 @@ class SyncCourseGroups extends BaseJob
                 }
 
                 $element->title = $courseGroup['name'] ?: null;
-                $element->name = $courseGroup['name'] ?: null;
                 $element->subtitle = $courseGroup['subtitle'] ?: null;
                 $element->description = $courseGroup['description'] ?: null;
                 $element->practicalInfo = $courseGroup['practical_info'] ?: null;

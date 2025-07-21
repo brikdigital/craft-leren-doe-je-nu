@@ -9,7 +9,6 @@ use craft\helpers\Db;
 class CourseGroupQuery extends ElementQuery
 {
     public $foreignId;
-    public $name;
     public $subtitle;
     public $description;
     public $practicalInfo;
@@ -21,12 +20,6 @@ class CourseGroupQuery extends ElementQuery
     public function foreignId(int $value): self
     {
         $this->foreignId = $value;
-        return $this;
-    }
-
-    public function name(string $value): self
-    {
-        $this->name = $value;
         return $this;
     }
 
@@ -77,7 +70,7 @@ class CourseGroupQuery extends ElementQuery
         $this->joinElementTable(CourseGroup::TABLE);
 
         $columns = [];
-        $properties = ['foreignId', 'name', 'subtitle', 'description', 'practicalInfo', 'lowestPrice', 'bookingUrl', 'year', 'startDateTime'];
+        $properties = ['foreignId', 'subtitle', 'description', 'practicalInfo', 'lowestPrice', 'bookingUrl', 'year', 'startDateTime'];
         foreach ($properties as $property) {
             $columns[] = $column = CourseGroup::TABLE . ".$property";
             if ($this->$property) {
