@@ -3,6 +3,8 @@
 namespace brikdigital\lerendoejenu\elements;
 
 use brikdigital\lerendoejenu\elements\db\TeacherQuery;
+use brikdigital\lerendoejenu\LerenDoeJeNu;
+use Craft;
 use craft\base\Element;
 use craft\elements\db\ElementQueryInterface;
 use craft\helpers\Db;
@@ -17,6 +19,27 @@ class Teacher extends Element
     public ?string $lastName = null;
     public ?string $infoText = null;
     public ?string $imageUrl = null;
+
+    public static function displayName(): string
+    {
+        return Craft::t(LerenDoeJeNu::getInstance()->getHandle(), 'Teacher');
+    }
+
+    public static function pluralDisplayName(): string
+    {
+        return Craft::t(LerenDoeJeNu::getInstance()->getHandle(), 'Teachers');
+    }
+
+    // TODO: Remove after Craft 5 update
+    public static function hasContent(): bool
+    {
+        return true;
+    }
+
+    public static function hasTitles(): bool
+    {
+        return true;
+    }
 
     public function afterSave(bool $isNew): void
     {
@@ -41,5 +64,15 @@ class Teacher extends Element
     public static function find(): ElementQueryInterface
     {
         return new TeacherQuery(static::class);
+    }
+
+    protected static function defineSources(string $context): array
+    {
+        return [
+            [
+                'key' => '*',
+                'label' => Craft::t('app', 'All entries'),
+            ],
+        ];
     }
 }

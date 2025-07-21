@@ -47,6 +47,7 @@ class LerenDoeJeNu extends Plugin
                 $event->rules[$this->handle] = "$this->handle/navigation/index";
 
                 $event->rules["$this->handle/course-groups"] = ['template' => "$this->handle/course-groups/_index.twig"];
+                $event->rules["$this->handle/teachers"] = ['template' => "$this->handle/teachers/_index.twig"];
             }
         );
     }
@@ -63,6 +64,10 @@ class LerenDoeJeNu extends Plugin
             'course-groups' => [
                 'label' => Craft::t($this->handle, 'Course groups'),
                 'url' => "$this->handle/course-groups"
+            ],
+            'teachers' => [
+                'label' => Craft::t($this->handle, 'Teachers'),
+                'url' => "$this->handle/teachers"
             ]
         ];
         return $nav;

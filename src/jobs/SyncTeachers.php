@@ -41,12 +41,13 @@ class SyncTeachers extends BaseJob
                     $element->foreignId = $teacher['user_id'];
                 }
 
-                $element->firstName = $teacher['first_name'];
-                $element->infix = $teacher['infix'];
-                $element->lastName = $teacher['last_name'];
-                $element->infoText = $teacher['info_text'];
-                $element->imageUrl = $teacher['image_url'];
+                $element->firstName = $teacher['first_name'] ?: null;
+                $element->infix = $teacher['infix'] ?: null;
+                $element->lastName = $teacher['last_name'] ?: null;
+                $element->infoText = $teacher['info_text'] ?: null;
+                $element->imageUrl = $teacher['image_url'] ?: null;
 
+                $element->title = implode(' ', [$element->firstName, $element->infix, $element->lastName]);
                 Craft::$app->getElements()->saveElement($element);
 
                 $processedIds[] = $element->id;

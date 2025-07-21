@@ -2,5 +2,7 @@
 
 return [
     'Course group' => 'Cursus',
-    'Course groups' => 'Cursussen'
+    'Course groups' => 'Cursussen',
+    'Teacher' => 'Docent',
+    'Teachers' => 'Docenten',
 ];
