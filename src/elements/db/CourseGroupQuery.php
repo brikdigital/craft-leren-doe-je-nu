@@ -16,6 +16,7 @@ class CourseGroupQuery extends ElementQuery
     public $bookingUrl;
     public $year;
     public $startDateTime;
+    public $daysOfWeek, $teacherIds, $prices, $locations;
 
     public function foreignId(int $value): self
     {
@@ -70,7 +71,10 @@ class CourseGroupQuery extends ElementQuery
         $this->joinElementTable(CourseGroup::TABLE);
 
         $columns = [];
-        $properties = ['foreignId', 'subtitle', 'description', 'practicalInfo', 'lowestPrice', 'bookingUrl', 'year', 'startDateTime'];
+        $properties = [
+            'foreignId', 'subtitle', 'description', 'practicalInfo', 'lowestPrice', 'bookingUrl', 'year', 'startDateTime',
+            'daysOfWeek', 'teacherIds', 'prices', 'locations'
+        ];
         foreach ($properties as $property) {
             $columns[] = $column = CourseGroup::TABLE . ".$property";
             if ($this->$property) {
