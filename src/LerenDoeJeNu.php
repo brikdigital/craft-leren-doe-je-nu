@@ -4,6 +4,7 @@ namespace brikdigital\lerendoejenu;
 
 use brikdigital\lerendoejenu\elements\CourseGroup;
 use brikdigital\lerendoejenu\elements\Teacher;
+use brikdigital\lerendoejenu\fields\CourseGroups;
 use brikdigital\lerendoejenu\models\Settings;
 use brikdigital\lerendoejenu\services\LerenDoeJeNuApiService;
 use Craft;
@@ -13,6 +14,7 @@ use craft\base\Plugin;
 use craft\events\RegisterComponentTypesEvent;
 use craft\events\RegisterUrlRulesEvent;
 use craft\services\Elements;
+use craft\services\Fields;
 use craft\web\UrlManager;
 
 /**
@@ -48,6 +50,14 @@ class LerenDoeJeNu extends Plugin
 
                 $event->rules["$this->handle/course-groups"] = ['template' => "$this->handle/course-groups/_index.twig"];
                 $event->rules["$this->handle/teachers"] = ['template' => "$this->handle/teachers/_index.twig"];
+            }
+        );
+
+        Event::on(
+            Fields::class,
+            Fields::EVENT_REGISTER_FIELD_TYPES,
+            function(RegisterComponentTypesEvent $event) {
+                $event->types[] = CourseGroups::class;
             }
         );
     }
