@@ -50,6 +50,7 @@ class Install extends Migration
                 'bookingUrl' => $this->string(),
                 'year' => $this->string(),
                 'startDateTime' => $this->dateTime(),
+                'subscribeUntil' => $this->dateTime(),
                 'daysOfWeek' => $this->json(),
                 'teacherIds' => $this->json(),
                 'prices' => $this->json(),

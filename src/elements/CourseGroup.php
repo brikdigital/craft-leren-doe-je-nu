@@ -22,6 +22,7 @@ class CourseGroup extends Element
     public ?string $bookingUrl = null;
     public ?string $year = null;
     public ?DateTime $startDateTime = null;
+    public ?DateTime $subscribeUntil = null;
     public array $daysOfWeek = [];
     public array $teacherIds = [];
     public array $prices = [];
@@ -59,6 +60,7 @@ class CourseGroup extends Element
                 'bookingUrl' => $this->bookingUrl ?: null,
                 'year' => $this->year ?: null,
                 'startDateTime' => Db::prepareValueForDb($this->startDateTime) ?: null,
+                'subscribeUntil' => Db::prepareValueForDb($this->subscribeUntil) ?: null,
                 'daysOfWeek' => Db::prepareValueForDb($this->daysOfWeek) ?: null,
                 'teacherIds' => Db::prepareValueForDb($this->teacherIds) ?: null,
                 'prices' => Db::prepareValueForDb($this->prices) ?: null,
