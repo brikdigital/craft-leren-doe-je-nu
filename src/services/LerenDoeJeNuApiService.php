@@ -48,7 +48,7 @@ class LerenDoeJeNuApiService extends Component
             if ($page < $last) {
                 $query['page'] = $page;
                 $nextPage = $this->getAll($endpoint, $query, $pageCallback);
-                $response['content'] = array_merge($response['content'], $nextPage['content']);
+                $response['content'] = array_merge($response['content'], $nextPage);
             }
         }
 
