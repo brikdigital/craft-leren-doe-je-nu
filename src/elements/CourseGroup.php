@@ -61,10 +61,10 @@ class CourseGroup extends Element
                 'year' => $this->year ?: null,
                 'startDateTime' => Db::prepareValueForDb($this->startDateTime) ?: null,
                 'subscribeUntil' => Db::prepareValueForDb($this->subscribeUntil) ?: null,
-                'daysOfWeek' => Db::prepareValueForDb($this->daysOfWeek) ?: null,
-                'teacherIds' => Db::prepareValueForDb($this->teacherIds) ?: null,
-                'prices' => Db::prepareValueForDb($this->prices) ?: null,
-                'locations' => Db::prepareValueForDb($this->locations) ?: null,
+                'daysOfWeek' => $this->daysOfWeek ?: null,
+                'teacherIds' => $this->teacherIds ?: null,
+                'prices' => $this->prices ?: null,
+                'locations' => $this->locations ?: null,
             ];
 
             Db::upsert(self::TABLE, array_merge($updateColumns, [
