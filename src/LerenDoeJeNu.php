@@ -22,6 +22,7 @@ use craft\web\UrlManager;
  */
 class LerenDoeJeNu extends Plugin
 {
+    public string $schemaVersion = '5.0.1';
     public bool $hasCpSection = true;
     public bool $hasCpSettings = true;
 

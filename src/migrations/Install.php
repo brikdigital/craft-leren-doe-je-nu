@@ -38,7 +38,7 @@ class Install extends Migration
     {
         $tablesCreated = false;
 
-        if (!Craft::$app->getDb()->tableExists(CourseGroup::TABLE)) {
+        if (!$this->db->tableExists(CourseGroup::TABLE)) {
             $this->createTable(CourseGroup::TABLE, [
                 'id' => $this->primaryKey(),
                 'foreignId' => $this->bigInteger()->unsigned()->unique()->notNull(),
@@ -47,6 +47,7 @@ class Install extends Migration
                 'description' => $this->text(),
                 'practicalInfo' => $this->text(),
                 'lowestPrice' => $this->float(),
+                'numberOfLessons' => $this->integer(),
                 'bookingUrl' => $this->string(),
                 'year' => $this->string(),
                 'startDateTime' => $this->dateTime(),
@@ -64,7 +65,7 @@ class Install extends Migration
             $tablesCreated = true;
         }
 
-        if (!Craft::$app->getDb()->tableExists(Teacher::TABLE)) {
+        if (!$this->db->tableExists(Teacher::TABLE)) {
             $this->createTable(Teacher::TABLE, [
                 'id' => $this->primaryKey(),
                 'foreignId' => $this->bigInteger()->unsigned()->unique()->notNull(),
