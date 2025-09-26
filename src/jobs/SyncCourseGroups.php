@@ -21,8 +21,6 @@ class SyncCourseGroups extends BaseJob
         $count = 0;
         $processedIds = [];
 
-        Craft::info(CourseGroup::find()->all(), 'LALAL');
-
         LerenDoeJeNu::getInstance()->api->getAll('courseGroups', [
             'sort' => 'id,asc'
         ], function ($response) use (&$count, &$processedIds, $queue) {
