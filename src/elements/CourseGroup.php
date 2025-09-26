@@ -19,6 +19,7 @@ class CourseGroup extends Element
     public ?string $description = null;
     public ?string $practicalInfo = null;
     public ?float $lowestPrice = null;
+    public ?int $numberOfLessons = null;
     public ?string $bookingUrl = null;
     public ?string $year = null;
     public ?DateTime $startDateTime = null;
@@ -57,6 +58,7 @@ class CourseGroup extends Element
                 'description' => $this->description ?: null,
                 'practicalInfo' => $this->practicalInfo ?: null,
                 'lowestPrice' => $this->lowestPrice ?: null,
+                'numberOfLessons' => $this->numberOfLessons ?: null,
                 'bookingUrl' => $this->bookingUrl ?: null,
                 'year' => $this->year ?: null,
                 'startDateTime' => Db::prepareValueForDb($this->startDateTime) ?: null,

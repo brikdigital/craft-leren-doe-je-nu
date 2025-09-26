@@ -47,6 +47,7 @@ class SyncCourseGroups extends BaseJob
                 $element->description = $courseGroup['description'] ?: null;
                 $element->practicalInfo = $courseGroup['practical_info'] ?: null;
                 $element->lowestPrice = $courseGroup['lowest_price'] ?: null;
+                $element->numberOfLessons = $courseGroup['number_of_lessons'] ?: null;
                 $element->bookingUrl = ('https://' . ltrim($courseGroup['booking_url'], 'htps:/')) ?: null;
                 $element->year = $courseGroup['year']['name'] ?: null;
                 $element->startDateTime = $courseGroup['start_date_time'] ? new DateTime($courseGroup['start_date_time']) : null;

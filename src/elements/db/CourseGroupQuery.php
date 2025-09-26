@@ -13,6 +13,7 @@ class CourseGroupQuery extends ElementQuery
     public $description;
     public $practicalInfo;
     public $lowestPrice;
+    public $numberOfLessons;
     public $bookingUrl;
     public $year;
     public $startDateTime;
@@ -49,6 +50,12 @@ class CourseGroupQuery extends ElementQuery
         return $this;
     }
 
+    public function numberOfLessons(int $value): self
+    {
+        $this->numberOfLessons = $value;
+        return $this;
+    }
+
     public function bookingUrl(string $value): self
     {
         $this->bookingUrl = $value;
@@ -73,8 +80,8 @@ class CourseGroupQuery extends ElementQuery
 
         $columns = [];
         $properties = [
-            'foreignId', 'subtitle', 'description', 'practicalInfo', 'lowestPrice', 'bookingUrl', 'year', 'startDateTime', 'subscribeUntil',
-            'daysOfWeek', 'teacherIds', 'prices', 'locations'
+            'foreignId', 'subtitle', 'description', 'practicalInfo', 'lowestPrice', 'numberOfLessons', 'bookingUrl',
+            'year', 'startDateTime', 'subscribeUntil', 'daysOfWeek', 'teacherIds', 'prices', 'locations'
         ];
         foreach ($properties as $property) {
             $columns[] = $column = CourseGroup::TABLE . ".$property";
