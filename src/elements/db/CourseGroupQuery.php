@@ -9,6 +9,7 @@ use craft\helpers\Db;
 class CourseGroupQuery extends ElementQuery
 {
     public $foreignId;
+    public $type;
     public $subtitle;
     public $description;
     public $practicalInfo;
@@ -18,11 +19,17 @@ class CourseGroupQuery extends ElementQuery
     public $year;
     public $startDateTime;
     public $subscribeUntil;
-    public $daysOfWeek, $teacherIds, $prices, $locations;
+    public $daysOfWeek, $teacherIds, $prices, $locations, $lessons;
 
     public function foreignId(int $value): self
     {
         $this->foreignId = $value;
+        return $this;
+    }
+
+    public function type(string $value): self
+    {
+        $this->type = $value;
         return $this;
     }
 
@@ -80,8 +87,9 @@ class CourseGroupQuery extends ElementQuery
 
         $columns = [];
         $properties = [
-            'foreignId', 'subtitle', 'description', 'practicalInfo', 'lowestPrice', 'numberOfLessons', 'bookingUrl',
-            'year', 'startDateTime', 'subscribeUntil', 'daysOfWeek', 'teacherIds', 'prices', 'locations'
+            'foreignId', 'type', 'subtitle', 'description', 'practicalInfo', 'lowestPrice', 'numberOfLessons',
+            'bookingUrl', 'year', 'startDateTime', 'subscribeUntil', 'daysOfWeek', 'teacherIds', 'prices', 'locations',
+            'lessons'
         ];
         foreach ($properties as $property) {
             $columns[] = $column = CourseGroup::TABLE . ".$property";

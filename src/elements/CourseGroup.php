@@ -15,6 +15,7 @@ class CourseGroup extends Element
     public const TABLE = '{{%ldjn_course_groups}}';
 
     public ?int $foreignId = null;
+    public ?string $type = null;
     public ?string $subtitle = null;
     public ?string $description = null;
     public ?string $practicalInfo = null;
@@ -28,6 +29,7 @@ class CourseGroup extends Element
     public array $teacherIds = [];
     public array $prices = [];
     public array $locations = [];
+    public array $lessons = [];
 
     public static function displayName(): string
     {
@@ -54,6 +56,7 @@ class CourseGroup extends Element
     {
         if (!$this->propagating) {
             $updateColumns = [
+                'type' => $this->type ?: null,
                 'subtitle' => $this->subtitle ?: null,
                 'description' => $this->description ?: null,
                 'practicalInfo' => $this->practicalInfo ?: null,
@@ -67,6 +70,7 @@ class CourseGroup extends Element
                 'teacherIds' => $this->teacherIds ?: null,
                 'prices' => $this->prices ?: null,
                 'locations' => $this->locations ?: null,
+                'lessons' => $this->lessons ?: null,
             ];
 
             Db::upsert(self::TABLE, array_merge($updateColumns, [
