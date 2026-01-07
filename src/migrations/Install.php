@@ -43,6 +43,7 @@ class Install extends Migration
                 'id' => $this->primaryKey(),
                 'foreignId' => $this->bigInteger()->unsigned()->unique()->notNull(),
 
+                'type' => $this->string(),
                 'subtitle' => $this->string(),
                 'description' => $this->text(),
                 'practicalInfo' => $this->text(),
@@ -56,6 +57,7 @@ class Install extends Migration
                 'teacherIds' => $this->json(),
                 'prices' => $this->json(),
                 'locations' => $this->json(),
+                'lessons' => $this->json(),
 
                 'dateCreated' => $this->dateTime()->notNull(),
                 'dateUpdated' => $this->dateTime()->notNull(),

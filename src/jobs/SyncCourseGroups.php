@@ -43,6 +43,7 @@ class SyncCourseGroups extends BaseJob
                 }
 
                 $element->title = $courseGroup['name'] ?: null;
+                $element->type = $courseGroup['type'] ?: null;
                 $element->subtitle = $courseGroup['subtitle'] ?: null;
                 $element->description = $courseGroup['description'] ?: null;
                 $element->practicalInfo = $courseGroup['practical_info'] ?: null;
@@ -56,6 +57,7 @@ class SyncCourseGroups extends BaseJob
                 $element->teacherIds = $courseGroup['teacher_ids'] ?: [];
                 $element->prices = $courseGroup['prices'] ?: [];
                 $element->locations = $courseGroup['locations'] ?: [];
+                $element->lessons = $courseGroup['lessons'] ?: [];
 
                 Craft::$app->getElements()->saveElement($element);
 
