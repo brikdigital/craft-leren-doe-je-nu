@@ -30,6 +30,7 @@ class CourseGroup extends Element
     public array $prices = [];
     public array $locations = [];
     public array $lessons = [];
+    public array $ageGroups = [];
 
     public static function displayName(): string
     {
@@ -71,6 +72,7 @@ class CourseGroup extends Element
                 'prices' => $this->prices ?: null,
                 'locations' => $this->locations ?: null,
                 'lessons' => $this->lessons ?: null,
+                'ageGroups' => $this->ageGroups ?: null,
             ];
 
             Db::upsert(self::TABLE, array_merge($updateColumns, [

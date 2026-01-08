@@ -58,6 +58,7 @@ class SyncCourseGroups extends BaseJob
                 $element->prices = $courseGroup['prices'] ?: [];
                 $element->locations = $courseGroup['locations'] ?: [];
                 $element->lessons = $courseGroup['lessons'] ?: [];
+                $element->ageGroups = $courseGroup['age_groups'] ?: [];
 
                 Craft::$app->getElements()->saveElement($element);
 

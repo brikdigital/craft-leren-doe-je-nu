@@ -58,6 +58,7 @@ class Install extends Migration
                 'prices' => $this->json(),
                 'locations' => $this->json(),
                 'lessons' => $this->json(),
+                'ageGroups' => $this->json(),
 
                 'dateCreated' => $this->dateTime()->notNull(),
                 'dateUpdated' => $this->dateTime()->notNull(),
