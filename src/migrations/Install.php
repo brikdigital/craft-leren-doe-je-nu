@@ -59,6 +59,7 @@ class Install extends Migration
                 'locations' => $this->json(),
                 'lessons' => $this->json(),
                 'ageGroups' => $this->json(),
+                'websiteAgeGroups' => $this->json(),
 
                 'dateCreated' => $this->dateTime()->notNull(),
                 'dateUpdated' => $this->dateTime()->notNull(),

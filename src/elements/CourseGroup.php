@@ -31,6 +31,7 @@ class CourseGroup extends Element
     public array $locations = [];
     public array $lessons = [];
     public array $ageGroups = [];
+    public array $websiteAgeGroups = [];
 
     public static function displayName(): string
     {
@@ -73,6 +74,7 @@ class CourseGroup extends Element
                 'locations' => $this->locations ?: null,
                 'lessons' => $this->lessons ?: null,
                 'ageGroups' => $this->ageGroups ?: null,
+                'websiteAgeGroups' => $this->websiteAgeGroups ?: null,
             ];
 
             Db::upsert(self::TABLE, array_merge($updateColumns, [
