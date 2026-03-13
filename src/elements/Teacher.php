@@ -30,12 +30,6 @@ class Teacher extends Element
         return Craft::t(LerenDoeJeNu::getInstance()->getHandle(), 'Teachers');
     }
 
-    // TODO: Remove after Craft 5 update
-    public static function hasContent(): bool
-    {
-        return true;
-    }
-
     public static function hasTitles(): bool
     {
         return true;

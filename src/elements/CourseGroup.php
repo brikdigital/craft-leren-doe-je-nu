@@ -43,12 +43,6 @@ class CourseGroup extends Element
         return Craft::t(LerenDoeJeNu::getInstance()->getHandle(), 'Course groups');
     }
 
-    // TODO: Remove after Craft 5 update
-    public static function hasContent(): bool
-    {
-        return true;
-    }
-
     public static function hasTitles(): bool
     {
         return true;
@@ -97,6 +91,7 @@ class CourseGroup extends Element
             [
                 'key' => '*',
                 'label' => Craft::t('app', 'All entries'),
+                'defaultSort' => ['title', 'desc'],
             ],
         ];
     }
