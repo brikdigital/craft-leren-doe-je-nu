@@ -2,13 +2,18 @@
   "name": "brikdigital/craft-leren-doe-je-nu",
   "description": "Leren Doe Je Nu API-integration",
   "type": "craft-plugin",
-  "version": "5.0.1",
+  "version": "4.0.0",
   "keywords": [
     "craft",
     "cms",
     "craftcms",
     "craft-plugin"
   ],
+  "support": {
+    "issues": "https://github.com/brikdigital/craft-leren-doe-je-nu/issues?state=open",
+    "source": "https://github.com/brikdigital/craft-leren-doe-je-nu",
+    "rss": "https://github.com/brikdigital/craft-leren-doe-je-nu/commits/v2.atom"
+  },
   "license": "MPL-2.0",
   "authors": [
     {
@@ -28,6 +33,7 @@
   "extra": {
     "name": "Leren doe je nu",
     "handle": "leren-doe-je-nu",
+    "developer": "Brik.digital",
     "class": "brikdigital\\lerendoejenu\\LerenDoeJeNu"
   },
   "config": {
